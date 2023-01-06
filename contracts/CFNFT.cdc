@@ -1,7 +1,7 @@
   import NonFungibleToken from 0x631e88ae7f1d7c20
 
 
-pub contract FFMNFT : NonFungibleToken{
+pub contract CFNFT : NonFungibleToken{
     pub var totalSupply: UInt64
     
     pub event Deposit(id: UInt64, to: Address?)
@@ -12,9 +12,9 @@ pub contract FFMNFT : NonFungibleToken{
         pub let id: UInt64 
         pub let uri: String
         init() {
-            self.id = FFMNFT.totalSupply
+            self.id = CFNFT.totalSupply
             self.uri = "https://www.google.com/search?q=bronze+card&client=ubuntu&hs=nJt&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjE2M70nYj7AhXH7zgGHYSrD0gQ_AUoAXoECAIQAw&biw=1526&bih=763&dpr=1#imgrc=_ou7KayMksl65M"
-            FFMNFT.totalSupply = FFMNFT.totalSupply + (1 as UInt64)
+            CFNFT.totalSupply = CFNFT.totalSupply + (1 as UInt64)
         }
         
     }
@@ -72,7 +72,7 @@ pub contract FFMNFT : NonFungibleToken{
 
     init(){
         self.totalSupply = 0
-        self.account.save(<-create NFTMinter(), to: /storage/Minter)
+        self.account.save(<-create NFTMinter(), to: /storage/CFMinter)
         emit ContractInitialized()
     }
 }
